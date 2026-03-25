@@ -1,0 +1,134 @@
+PROJECT: Customer Behavior Analysis
+
+1. Total Orders
+Query:
+SELECT COUNT(*) FROM ecommerce_customer_behavior_dataset;
+
+Result:
+5000
+
+Insight:
+There are 5000 transactions in the dataset.
+
+--------------------------------------
+
+2. Total Customers
+Query:
+SELECT COUNT(DISTINCT customer_id) FROM ecommerce_customer_behavior_dataset;
+
+Result:
+5000
+
+Insight:
+Each customer made only one purchase → very low retention.
+
+--------------------------------------
+
+3. Total Revenue
+Query:
+SELECT SUM(total_amount) FROM ecommerce_customer_behavior_dataset;
+
+Result:
+4915544.57
+
+Insight:
+Business generated ~4.9 million revenue, but mostly from new customers.
+
+4. Revenue by Category
+
+Query:
+SELECT product_category, SUM(total_amount) AS revenue
+FROM ecommerce_customer_behavior_dataset
+GROUP BY product_category
+ORDER BY revenue DESC;
+
+Result:
+Highest = Electronics  
+Lowest = Books  
+
+Insight:
+The Electronics category generates the highest revenue, indicating strong demand and higher spending in this segment. In contrast, Books contribute the least revenue, suggesting lower demand or lower pricing. The business should focus marketing and inventory on high-performing categories like Electronics while exploring strategies to improve sales in low-performing categories.
+
+5. Customer Type Analysis
+
+
+Query: SELECT is_returning_cus, COUNT(*) AS total_orders
+FROM ecommerce_customer_behavior_dataset
+GROUP BY is_returning_cus;
+
+Result:
+Returning customers = 2990  
+New customers = 2010  
+
+Insight:
+A higher number of orders come from returning customers, indicating good customer engagement and repeat purchasing behavior. This suggests that retention strategies are working effectively and contribute significantly to overall sales.
+
+6. Revenue by Customer Type
+
+Query:
+SELECT is_returning_cus, SUM(total_amount) AS revenue
+FROM ecommerce_customer_behavior_dataset
+GROUP BY is_returning_cus;
+
+Result:
+New customers revenue = 1,967,523  
+Returning customers revenue = 2,948,020  
+
+Insight:
+Returning customers generate significantly higher revenue compared to new customers. This indicates that repeat customers are more valuable and contribute more to business growth. Focusing on customer retention strategies can further increase overall revenue.
+
+7. Device-wise Customer Spending
+
+Query:
+SELECT device_type, AVG(total_amount) AS avg_spend
+FROM ecommerce_customer_behavior_dataset
+GROUP BY device_type;
+
+Result:
+Mobile = ~1005  
+Desktop = ~964  
+Tablet = ~920  
+
+Insight:
+Mobile users have the highest average spending compared to desktop and tablet users. This suggests that customers using mobile devices are more likely to make higher-value purchases. Businesses should focus on optimizing the mobile shopping experience to maximize revenue.
+
+8. Delivery Time vs Customer Rating
+
+Query:
+SELECT delivery_time_days, AVG(customer_rating)
+FROM ecommerce_customer_behavior_dataset
+GROUP BY delivery_time_days
+ORDER BY delivery_time_days;
+
+Result:
+Highest rating around 3 days (~4.0)
+Ratings remain between ~3.6 to ~4.0
+
+Insight:
+Customer ratings do not vary significantly with delivery time. This suggests delivery speed is not the primary factor affecting customer satisfaction.
+
+9. Revenue by City
+
+Query:
+SELECT city, SUM(total_amount) AS revenue
+FROM ecommerce_customer_behavior_dataset
+GROUP BY city
+ORDER BY revenue DESC;
+
+Result:
+Highest = Istanbul  
+Lowest = Eskesehir  
+
+Insight:
+Istanbul generates the highest revenue, indicating it is the strongest market for the business. In contrast, Eskesehir contributes the least revenue, suggesting lower demand or market penetration. The company should focus expansion and marketing efforts in high-performing cities like Istanbul while exploring strategies to improve sales in low-performing regions.
+
+
+FINAL CONCLUSION:
+
+The analysis of the e-commerce dataset reveals that the business generates strong overall revenue (~4.9 million) from 5000 transactions. However, customer retention is relatively low, as most customers make only a single purchase.
+Despite this, returning customers contribute a significantly higher portion of total revenue, indicating that repeat customers are more valuable to the business. This highlights the importance of focusing on customer retention strategies such as loyalty programs and personalized marketing.
+From a product perspective, the Electronics category is the top revenue generator, suggesting high demand for high-value products, while categories like Books underperform and may require strategic improvements.
+In terms of customer behavior, mobile users demonstrate the highest average spending, indicating that mobile platforms are a key driver of revenue and should be prioritized for optimization.
+Additionally, analysis of delivery time shows minimal impact on customer ratings, suggesting that factors such as product quality or overall experience may play a more important role in customer satisfaction.
+Finally, city-level analysis shows that Istanbul is the highest revenue-generating market, while Eskesehir has the lowest contribution, indicating opportunities for targeted regional marketing and expansion.
+Overall, the business can improve performance by focusing on customer retention, optimizing high-performing categories and regions, and enhancing the mobile user experience.
