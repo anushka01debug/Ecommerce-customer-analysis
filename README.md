@@ -17,4 +17,4 @@ This project analyzes customer purchasing behavior using SQL and visualizes insi
 - Istanbul is the top-performing city
 
 ## 📈 Dashboard
-[View Dashboard](https://public.tableau.com/views/CustomerBehaviourRevenueInsightsDashboard/CustomerBehaviourRevenueInsightsDashboard?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
+[View Dashboard](https://public.tableau.com/views/CustomerBehaviourRevenueInsightsTotalRevenue4915544/CustomerBehaviourRevenueInsightsTotalRevenue4915544?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
